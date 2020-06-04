@@ -9,7 +9,7 @@ class BSTNode(Generic[T]):
     """
     Your node should permit at least the following
     node.left: get the left child
-    node.right: gert the right child
+    node.right: get the right child
     """
     def __init__(self, value: T, children: Optional[Iterable["BSTNode[T]"]] = None,
                  parent: Optional["BSTNode[T]"] = None) -> None:
@@ -18,7 +18,15 @@ class BSTNode(Generic[T]):
         :param children: optional children
         :param parent: an optional parent node
         """
-        ...
+        self.value = value
+        if children is not None:
+            for val in children:
+                if val.value >= self.value:
+                    self.left = val
+                if val.value < self.value:
+                    self.right = val
+        self.node_parent = parent
+
 
     def __iter__(self) -> Iterable["BSTNode[T]"]:
         """
