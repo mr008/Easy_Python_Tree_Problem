@@ -19,6 +19,8 @@ class BSTNode(Generic[T]):
         :param parent: an optional parent node
         """
         self.value = value
+        self.left = None
+        self.right = None
         if children is not None:
             for val in children:
                 if val.value >= self.value:
