@@ -27,7 +27,7 @@ class BSTNode(Generic[T]):
                     self.left = val
                 if val.value < self.value:
                     self.right = val
-        self.node_parent = parent
+        self.parent = parent
 
 
     def __iter__(self) -> Iterable["BSTNode[T]"]:
