@@ -24,7 +24,7 @@ class BST(Generic[T, K]):
         It serves the same role as the key function in the min, max, and sorted builtin
         functions
         """
-        self.root = ...
+        self.root = root
         ...
 
     @property
