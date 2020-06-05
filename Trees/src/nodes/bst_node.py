@@ -24,9 +24,9 @@ class BSTNode(Generic[T]):
         if children is not None:
             for val in children:
                 if val.value >= self.value:
-                    self.left = val
-                if val.value < self.value:
                     self.right = val
+                if val.value < self.value:
+                    self.left = val
         self.parent = parent
 
 
