@@ -24,6 +24,7 @@ class BST(Generic[T, K]):
         It serves the same role as the key function in the min, max, and sorted builtin
         functions
         """
+        self.key = key
         self.root = root
         ...
 
@@ -33,7 +34,18 @@ class BST(Generic[T, K]):
         Compute the height of the tree. If the tree is empty its height is -1
         :return:
         """
-        ...
+        height = -1
+        if self.root == None:
+            return height
+        else:
+            return height + self.rec_height(self.root)
+
+    def rec_height(self,bst_node: "BSTNode[T]"):
+        if bst_node.right == None:
+            return 0
+        if bst_node.left == None:
+            return 0
+        return self.rec_height(bst_node.right) + self.rec_height(bst_node.left)
 
     def __len__(self) -> int:
         """
@@ -59,20 +71,41 @@ class BST(Generic[T, K]):
         """
         ...
 
+    def rec_max(node : BSTNode[T]):
+        if node is None:
+            raise EmptyTreeError
+        else:
+            if node.right is None:
+                return node
+            else:
+                return rec_max(node.right)
+
     def get_max_node(self) -> BSTNode[T]:
         """
         Return the node with the largest value in the BST
         :return:
         :raises EmptyTreeError if the tree is empty
         """
-        ...
+        return(rec_max(self.root))
+
+    def rec_min(node : BSTNode[T]):
+        if node is None:
+            raise EmptyTreeError
+        else:
+            if node.left is None:
+                return node
+            else:
+                return rec_min(node.left)
 
     def get_min_node(self) -> BSTNode[T]:
         """
         Return the node with the smallest value in the BST
         :return:
         """
-        ...
+
+        return rec_min(self.root)
+
+
 
     def remove_value(self, value: K) -> None:
         """
