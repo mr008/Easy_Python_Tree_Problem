@@ -47,6 +47,17 @@ class BST(Generic[T, K]):
             return 0
         return self.rec_height(bst_node.right) + self.rec_height(bst_node.left)
 
+    @property
+    def get_height(node: BSTNode[T]):
+
+        if node is None:
+            return -1
+
+        leftHeight = get_height(node.left)
+        rightHeight = get_height(node.right)
+        return 1 + max(leftHeight, rightHeight)
+
+
     def __len__(self) -> int:
         """
         :return: the number of nodes in the tree
