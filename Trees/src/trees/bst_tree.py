@@ -40,7 +40,8 @@ class BST(Generic[T, K]):
     def get_height(node: BSTNode[T]):
 
         if node is None:
-            return -1        leftHeight = get_height(node.left)
+            return -1
+        leftHeight = get_height(node.left)
         rightHeight = get_height(node.right)
         return 1 + max(leftHeight, rightHeight)
 
@@ -58,7 +59,34 @@ class BST(Generic[T, K]):
         :param value:
         :return:
         """
-        ...
+        my_node = BSTNode(value)
+        get_add(self,my_node)
+
+    def get_add(tree, node):
+        if tree.root is null:
+            tree.root = node
+            node.left = None
+            node.right = None
+        else:
+            cur = tree.root
+            while cur is not None:
+                if node.value < cur.value:
+                    if cur.left is None:
+                        cur.left = node
+                        cur = None
+                    else:
+                        cur = cur.left
+                else
+                    if cur.right is None:
+                        cur.right = node
+                        cur = None
+                    else
+                        cur = cur.right
+            node.left = None
+            node.right = None
+
+
+
 
     def get_node(self, value: K) -> BSTNode[T]:
         """
