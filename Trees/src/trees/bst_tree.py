@@ -40,9 +40,7 @@ class BST(Generic[T, K]):
     def get_height(node: BSTNode[T]):
 
         if node is None:
-            return -1
-
-        leftHeight = get_height(node.left)
+            return -1        leftHeight = get_height(node.left)
         rightHeight = get_height(node.right)
         return 1 + max(leftHeight, rightHeight)
 
