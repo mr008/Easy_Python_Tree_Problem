@@ -69,7 +69,7 @@ class BST(Generic[T, K]):
         else:
             cur = tree.root
             while cur is not None:
-                if node.value < cur.value:
+                if tree.key(node.value) < tree.key(cur.value):
                     if cur.left is None:
                         cur.left = node
                         cur = None
@@ -143,6 +143,8 @@ class BST(Generic[T, K]):
         :raises MissingValueError if the node does not exist
         """
         ...
+
+        raise MissingValueError("There is no node with the specified value")
 
     def __eq__(self, other: object) -> bool:
         if self is other:
