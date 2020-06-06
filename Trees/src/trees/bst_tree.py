@@ -62,7 +62,7 @@ class BST(Generic[T, K]):
         get_add(self,my_node)
 
     def get_add(tree, node):
-        if tree.root is null:
+        if tree.root is None:
             tree.root = node
             node.left = None
             node.right = None
@@ -75,11 +75,11 @@ class BST(Generic[T, K]):
                         cur = None
                     else:
                         cur = cur.left
-                else
+                else:
                     if cur.right is None:
                         cur.right = node
                         cur = None
-                    else
+                    else:
                         cur = cur.right
             node.left = None
             node.right = None
