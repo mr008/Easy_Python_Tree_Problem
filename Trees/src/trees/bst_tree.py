@@ -26,7 +26,6 @@ class BST(Generic[T, K]):
         """
         self.key = key
         self.root = root
-        ...
 
     @property
     def height(self) -> int:
@@ -70,7 +69,7 @@ class BST(Generic[T, K]):
         :return:
         """
         ...
-
+        raise MissingValueError("There is no node with the specified value")
     def rec_max(node : BSTNode[T]):
         if node is None:
             raise EmptyTreeError
