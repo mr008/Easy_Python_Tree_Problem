@@ -34,18 +34,7 @@ class BST(Generic[T, K]):
         Compute the height of the tree. If the tree is empty its height is -1
         :return:
         """
-        height = -1
-        if self.root == None:
-            return height
-        else:
-            return height + self.rec_height(self.root)
-
-    def rec_height(self,bst_node: "BSTNode[T]"):
-        if bst_node.right == None:
-            return 0
-        if bst_node.left == None:
-            return 0
-        return self.rec_height(bst_node.right) + self.rec_height(bst_node.left)
+       return get_height(self.root)
 
     @property
     def get_height(node: BSTNode[T]):
