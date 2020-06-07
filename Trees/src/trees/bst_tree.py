@@ -62,7 +62,7 @@ class BST(Generic[T, K]):
         get_add(self,my_node)
 
     def get_add(tree, node):
-        if tree.root is null:
+        if tree.root is None:
             tree.root = node
             node.left = None
             node.right = None
@@ -94,8 +94,8 @@ class BST(Generic[T, K]):
         :raises MissingValueError if there is no node with the specified value
         :return:
         """
-        ...
-        raise MissingValueError("There is no node with the specified value")
+
+
     def rec_max(node : BSTNode[T]):
         if node is None:
             raise EmptyTreeError
@@ -142,9 +142,10 @@ class BST(Generic[T, K]):
         :return:
         :raises MissingValueError if the node does not exist
         """
-        ...
+        if self.root is
 
         raise MissingValueError("There is no node with the specified value")
+
 
     def __eq__(self, other: object) -> bool:
         if self is other:
