@@ -94,6 +94,15 @@ class BST(Generic[T, K]):
         :raises MissingValueError if there is no node with the specified value
         :return:
         """
+        cur = self.root
+        while cur is not None:
+            if cur.value == value:
+                return cur
+            elif value < cur.value:
+                cur = cur.left
+            else:
+                cur = cur.right
+        raise MissingValueError("There is no node with the specified value")
 
 
     def rec_max(node : BSTNode[T]):
@@ -142,7 +151,8 @@ class BST(Generic[T, K]):
         :return:
         :raises MissingValueError if the node does not exist
         """
-        if self.root is
+        ...
+
 
         raise MissingValueError("There is no node with the specified value")
 
