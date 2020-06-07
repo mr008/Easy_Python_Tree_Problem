@@ -49,7 +49,18 @@ class BST(Generic[T, K]):
         """
         :return: the number of nodes in the tree
         """
-        ...
+        if self.root == None:
+            return 0
+        else:
+            return count_nodes(self.root)
+
+    def count_nodes(my_node: BSTNode[T]):
+        count = 1
+        if my_node.left != None:
+            count += count_nodes(my_node.left)
+        if my_node.right != None:
+            count += count_nodes(my_node.right)
+        return count
 
     def add_value(self, value: T) -> None:
         """
@@ -151,10 +162,26 @@ class BST(Generic[T, K]):
         :return:
         :raises MissingValueError if the node does not exist
         """
-        ...
+        if self.key(self.root.value) == value:
+            if self.root.children == None:
+                self.root = None
+            else:
+                bst_remove(self.root)
+        else:
+            node = self.get_node(value)
+            bst_remove(node)
 
+    def bst_remove(node_to_remove: BSTNode[T]):
+        if node_to_remove.children == None:
+            if node_to_remove.parent != None:
+                node_to_remove.parent.remove_child(node_to_remove)
+        elif node_to_remove.num_children == 1:
+                node_to_remove.parent.replace_child(node_to_remove, node_to_remove.left if node_to_remove.left is not None else node_to_remove.right)
+        else:
+            successor = rec_max(node_to_remove.left)
+            bst_remove(successor)
+            node_to_remove.value = successor.value
 
-        raise MissingValueError("There is no node with the specified value")
 
 
     def __eq__(self, other: object) -> bool:

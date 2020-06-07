@@ -21,14 +21,29 @@ class BSTNode(Generic[T]):
         self.value = value
         self.left = None
         self.right = None
-        if children is not None:
-            for val in children:
+        self.num_children = 0
+        self.children = children
+        if self.children is not None:
+            for val in self.children:
                 if val.value >= self.value:
                     self.right = val
+                    self.num_children += 1
                 if val.value < self.value:
                     self.left = val
+                    self.num_children += 1
         self.parent = parent
 
+    def remove_child(self, my_node : "BSTNode[T]"):
+        if self.left.value == my_node.value:
+            self.left = None
+        if self.right.value == my_node.value:
+            self.right = None
+
+    def replace_child(self, node1: "BSTNode[T]", node2: "BSTNode[T]"):
+        if self.left.value == node1.value:
+            self.left = node2
+        elif self.right.value == node1.value:
+            self.right = node2
 
     def __iter__(self) -> Iterable["BSTNode[T]"]:
         """
