@@ -27,21 +27,130 @@ class TestBST(unittest.TestCase):
         self.assertEqual(tree, cmp_tree)
 
     def test_get_height(self):
-        pass
-    def test_count_nodes(self):
-        pass
+        tree1 = BST()
+        tree2 = BST()
+        tree3 = BST()
+
+        tree1.root = BSTNode(23)
+        tree1.root.right = BSTNode(27)
+        tree1.root.left = BSTNode(5)
+        tree1.root.right.right = BSTNode(30)
+        tree1.root.right.right.right = BSTNode(33)
+        tree1.root.right.right.right.right = BSTNode(49)
+        tree1.root.right.left = BSTNode(24)
+        tree1.root.left.left = BSTNode(3)
+        tree1.root.left.right = BSTNode(8)
+
+        tree2.root = None
+
+        tree3.root = BSTNode(8)
+        tree3.root.right = BSTNode(34)
+        tree3.root.left = BSTNode(4)
+        tree3.root.left.left = BSTNode(3)
+
+
+        self.assertEqual(tree1.height, 3)
+        self.assertEqual(tree2.height, -1)
+        self.assertEqual(tree3.height, 1)
+
+    def test_len(self):
+        tree1 = BST()
+        tree2 = BST()
+        tree3 = BST()
+
+        tree1.root = BSTNode(23)
+        tree1.root.right = BSTNode(27)
+        tree1.root.left = BSTNode(5)
+        tree1.root.right.right = BSTNode(30)
+        tree1.root.right.right.right = BSTNode(33)
+        tree1.root.right.right.right.right = BSTNode(49)
+        tree1.root.right.left = BSTNode(24)
+        tree1.root.left.left = BSTNode(3)
+        tree1.root.left.right = BSTNode(8)
+
+        tree2.root = None
+
+        tree3.root = BSTNode(8)
+        tree3.root.right = BSTNode(34)
+        tree3.root.left = BSTNode(4)
+        tree3.root.left.left = BSTNode(3)
+
+        self.assertEqual(len(tree1),9)
+        self.assertEqual(len(tree2), 0)
+        self.assertEqual(len(tree3), 4)
 
     def test_add_value(self):
         pass
 
     def test_get_node(self):
-        pass
+        tree1 = BST()
+        tree2 = BST()
+        tree3 = BST()
+
+        tree1.root = BSTNode(23)
+        tree1.root.right = BSTNode(27)
+        tree1.root.left = BSTNode(5)
+        tree1.root.right.right = BSTNode(30)
+        tree1.root.right.right.right = BSTNode(33)
+        tree1.root.right.right.right.right = BSTNode(49)
+        tree1.root.right.left = BSTNode(24)
+        tree1.root.left.left = BSTNode(3)
+        tree1.root.left.right = BSTNode(8)
+
+        tree2.root = None
+
+        tree3.root = BSTNode(8)
+        tree3.root.right = BSTNode(34)
+        tree3.root.left = BSTNode(4)
+        tree3.root.left.left = BSTNode(3)
+
+        self.assertEqual()
 
     def test_get_max_node(self):
-        pass
+        tree1 = BST()
+        tree2 = BST()
+        tree3 = BST()
+
+        tree1.root = BSTNode(23)
+        tree1.root.right = BSTNode(27)
+        tree1.root.left = BSTNode(5)
+        tree1.root.right.right = BSTNode(30)
+        tree1.root.right.right.right = BSTNode(33)
+        tree1.root.right.right.right.right = BSTNode(49)
+        tree1.root.right.left = BSTNode(24)
+        tree1.root.left.left = BSTNode(3)
+        tree1.root.left.right = BSTNode(8)
+
+        tree2.root = None
+
+        tree3.root = BSTNode(8)
+        tree3.root.right = BSTNode(34)
+        tree3.root.left = BSTNode(4)
+        tree3.root.left.left = BSTNode(3)
 
     def test_get_min_node(self):
-        pass
+        tree1 = BST()
+        tree2 = BST()
+        tree3 = BST()
+
+        tree1.root = BSTNode(23)
+        tree1.root.right = BSTNode(27)
+        tree1.root.left = BSTNode(5)
+        tree1.root.right.right = BSTNode(30)
+        tree1.root.right.right.right = BSTNode(33)
+        tree1.root.right.right.right.right = BSTNode(49)
+        tree1.root.right.left = BSTNode(24)
+        tree1.root.left.left = BSTNode(3)
+        tree1.root.left.right = BSTNode(8)
+
+        tree2.root = None
+
+        tree3.root = BSTNode(8)
+        tree3.root.right = BSTNode(34)
+        tree3.root.left = BSTNode(4)
+        tree3.root.left.left = BSTNode(3)
+
+        self.assertEqual()
 
     def remove_value(self):
         pass

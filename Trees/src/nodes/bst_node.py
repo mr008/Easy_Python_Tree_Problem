@@ -33,7 +33,7 @@ class BSTNode(Generic[T]):
                     self.num_children += 1
         self.parent = parent
 
-    def remove_child(self, my_node : "BSTNode[T]"):
+    def remove_child(self, my_node : "BSTNode[T]") -> None:
         if self.left.value == my_node.value:
             self.left = None
             self.num_children -= 1
@@ -41,7 +41,7 @@ class BSTNode(Generic[T]):
             self.right = None
             self.num_children -= 1
 
-    def replace_child(self, node1: "BSTNode[T]", node2: "BSTNode[T]"):
+    def replace_child(self, node1: "BSTNode[T]", node2: "BSTNode[T]") -> None:
         if self.left == node1:
             self.left = node2
         elif self.right == node1:
