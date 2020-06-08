@@ -26,6 +26,26 @@ class TestBST(unittest.TestCase):
         cmp_tree = BST(root)
         self.assertEqual(tree, cmp_tree)
 
+    def test_get_height(self):
+        pass
+    def test_count_nodes(self):
+        pass
+
+    def test_add_value(self):
+        pass
+
+    def test_get_node(self):
+        pass
+
+    def test_get_max_node(self):
+        pass
+
+    def test_get_min_node(self):
+        pass
+
+    def remove_value(self):
+        pass
+
 
     def test_tree_not_eq(self):
         tree = BST()

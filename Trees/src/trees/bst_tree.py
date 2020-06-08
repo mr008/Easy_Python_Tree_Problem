@@ -8,6 +8,8 @@ T = TypeVar('T')
 K = TypeVar('K')
 
 
+
+
 class BST(Generic[T, K]):
     """
     T: The value stored in the node
@@ -33,15 +35,14 @@ class BST(Generic[T, K]):
         Compute the height of the tree. If the tree is empty its height is -1
         :return:
         """
-        return get_height(self.root)
+        return self.get_height(self.root)
 
-    @property
-    def get_height(node: BSTNode[T]):
+    def get_height(self, node: BSTNode[T]):
 
         if node is None:
             return -1
-        leftHeight = get_height(node.left)
-        rightHeight = get_height(node.right)
+        leftHeight = self.get_height(node.left)
+        rightHeight = self.get_height(node.right)
         return 1 + max(leftHeight, rightHeight)
 
 
@@ -52,14 +53,14 @@ class BST(Generic[T, K]):
         if self.root == None:
             return 0
         else:
-            return count_nodes(self.root)
+            return self.count_nodes(self.root)
 
-    def count_nodes(my_node: BSTNode[T]):
+    def count_nodes(self,my_node: BSTNode[T]):
         count = 1
         if my_node.left != None:
-            count += count_nodes(my_node.left)
+            count += self.count_nodes(my_node.left)
         if my_node.right != None:
-            count += count_nodes(my_node.right)
+            count += self.count_nodes(my_node.right)
         return count
 
     def add_value(self, value: T) -> None:
@@ -70,17 +71,17 @@ class BST(Generic[T, K]):
         :return:
         """
         my_node = BSTNode(value)
-        get_add(self,my_node)
+        self.get_add(my_node)
 
-    def get_add(tree, node):
-        if tree.root is None:
-            tree.root = node
+    def get_add(self, node):
+        if self.root is None:
+            self.root = node
             node.left = None
             node.right = None
         else:
-            cur = tree.root
+            cur = self.root
             while cur is not None:
-                if tree.key(node.value) < tree.key(cur.value):
+                if self.key(node.value) < self.key(cur.value):
                     if cur.left is None:
                         cur.left = node
                         cur = None
@@ -116,14 +117,14 @@ class BST(Generic[T, K]):
         raise MissingValueError("There is no node with the specified value")
 
 
-    def rec_max(node : BSTNode[T]):
+    def rec_max(self, node : BSTNode[T]):
         if node is None:
             raise EmptyTreeError
         else:
             if node.right is None:
                 return node
             else:
-                return rec_max(node.right)
+                return self.rec_max(node.right)
 
     def get_max_node(self) -> BSTNode[T]:
         """
@@ -131,16 +132,16 @@ class BST(Generic[T, K]):
         :return:
         :raises EmptyTreeError if the tree is empty
         """
-        return(rec_max(self.root))
+        return(self.rec_max(self.root))
 
-    def rec_min(node : BSTNode[T]):
+    def rec_min(self, node : BSTNode[T]):
         if node is None:
             raise EmptyTreeError
         else:
             if node.left is None:
                 return node
             else:
-                return rec_min(node.left)
+                return self.rec_min(node.left)
 
     def get_min_node(self) -> BSTNode[T]:
         """
@@ -148,7 +149,7 @@ class BST(Generic[T, K]):
         :return:
         """
 
-        return rec_min(self.root)
+        return self.rec_min(self.root)
 
 
 
@@ -171,15 +172,16 @@ class BST(Generic[T, K]):
             node = self.get_node(value)
             bst_remove(node)
 
-    def bst_remove(node_to_remove: BSTNode[T]):
+
+    def bst_remove(self, node_to_remove: BSTNode[T]):
         if node_to_remove.children == None:
             if node_to_remove.parent != None:
                 node_to_remove.parent.remove_child(node_to_remove)
         elif node_to_remove.num_children == 1:
                 node_to_remove.parent.replace_child(node_to_remove, node_to_remove.left if node_to_remove.left is not None else node_to_remove.right)
         else:
-            successor = rec_max(node_to_remove.left)
-            bst_remove(successor)
+            successor = self.rec_max(node_to_remove.left)
+            self.bst_remove(successor)
             node_to_remove.value = successor.value
 
 
