@@ -37,7 +37,7 @@ class BST(Generic[T, K]):
         """
         return self.get_height(self.root)
 
-    def get_height(self, node: BSTNode[T]):
+    def get_height(self, node: BSTNode[T]) -> int:
 
         if node is None:
             return -1
@@ -55,7 +55,7 @@ class BST(Generic[T, K]):
         else:
             return self.count_nodes(self.root)
 
-    def count_nodes(self,my_node: BSTNode[T]):
+    def count_nodes(self, my_node: BSTNode[T]):
         count = 1
         if my_node.left != None:
             count += self.count_nodes(my_node.left)
@@ -73,7 +73,7 @@ class BST(Generic[T, K]):
         my_node = BSTNode(value)
         self.get_add(my_node)
 
-    def get_add(self, node):
+    def get_add(self, node) -> None:
         if self.root is None:
             self.root = node
             node.left = None
@@ -117,7 +117,7 @@ class BST(Generic[T, K]):
         raise MissingValueError("There is no node with the specified value")
 
 
-    def rec_max(self, node : BSTNode[T]):
+    def rec_max(self, node : BSTNode[T]) -> BSTNode[T]:
         if node is None:
             raise EmptyTreeError
         else:
@@ -134,7 +134,7 @@ class BST(Generic[T, K]):
         """
         return(self.rec_max(self.root))
 
-    def rec_min(self, node : BSTNode[T]):
+    def rec_min(self, node : BSTNode[T]) -> BSTNode[T]:
         if node is None:
             raise EmptyTreeError
         else:
@@ -173,7 +173,7 @@ class BST(Generic[T, K]):
             self.bst_remove(node)
 
 
-    def bst_remove(self, node_to_remove: BSTNode[T]):
+    def bst_remove(self, node_to_remove: BSTNode[T]) -> None:
         if node_to_remove.children == None:
             if node_to_remove.parent != None:
                 node_to_remove.parent.remove_child(node_to_remove)
