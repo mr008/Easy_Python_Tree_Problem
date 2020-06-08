@@ -84,12 +84,14 @@ class BST(Generic[T, K]):
                 if self.key(node.value) < self.key(cur.value):
                     if cur.left is None:
                         cur.left = node
+                        cur.left.parent = cur
                         cur = None
                     else:
                         cur = cur.left
                 else:
                     if cur.right is None:
                         cur.right = node
+                        cur.right.parent = cur
                         cur = None
                     else:
                         cur = cur.right
@@ -114,7 +116,7 @@ class BST(Generic[T, K]):
                 cur = cur.left
             else:
                 cur = cur.right
-        raise MissingValueError("There is no node with the specified value")
+        raise MissingValueError
 
 
     def rec_max(self, node : BSTNode[T]) -> BSTNode[T]:
