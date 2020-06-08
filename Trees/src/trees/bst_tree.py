@@ -167,10 +167,10 @@ class BST(Generic[T, K]):
             if self.root.children == None:
                 self.root = None
             else:
-                bst_remove(self.root)
+                self.bst_remove(self.root)
         else:
             node = self.get_node(value)
-            bst_remove(node)
+            self.bst_remove(node)
 
 
     def bst_remove(self, node_to_remove: BSTNode[T]):
