@@ -108,9 +108,9 @@ class BST(Generic[T, K]):
         """
         cur = self.root
         while cur is not None:
-            if cur.value == value:
+            if self.key(cur.value) == value:
                 return cur
-            elif value < cur.value:
+            elif value < self.key(cur.value):
                 cur = cur.left
             else:
                 cur = cur.right
@@ -167,10 +167,10 @@ class BST(Generic[T, K]):
             if self.root.children == None:
                 self.root = None
             else:
-                bst_remove(self.root)
+                self.bst_remove(self.root)
         else:
             node = self.get_node(value)
-            bst_remove(node)
+            self.bst_remove(node)
 
 
     def bst_remove(self, node_to_remove: BSTNode[T]):
