@@ -50,9 +50,9 @@ class TestBST(unittest.TestCase):
         tree3.root.left = BSTNode(4)
         tree3.root.left.left = BSTNode(3)
 
-        #self.assertEqual(tree1.height, 3)
+        self.assertEqual(tree1.height, 4)
         self.assertEqual(tree2.height, -1)
-        #self.assertEqual(tree3.height, 1)
+        self.assertEqual(tree3.height, 2)
 
     def test_len(self):
         tree1 = BST()
