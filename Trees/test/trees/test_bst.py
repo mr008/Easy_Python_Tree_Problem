@@ -3,7 +3,7 @@ from Trees.src.trees.bst_tree import BST
 from Trees.src.nodes.bst_node import BSTNode
 from Trees.src.errors import EmptyTreeError
 from Trees.src.errors import MissingValueError
-
+#test
 class TestBST(unittest.TestCase):
 
     def test_create_empty_tree(self):
