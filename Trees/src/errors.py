@@ -1,6 +1,5 @@
-
 class MissingValueError(Exception):
-    ...
+    pass
 
 
 

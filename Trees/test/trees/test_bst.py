@@ -159,8 +159,8 @@ class TestBST(unittest.TestCase):
 
         self.assertEqual(tree1.get_node(23), tree1.root)
         self.assertEqual(tree1.get_node(49), tree1.root.right.right.right.right)
-        #self.assertRaises(MissingValueError, tree1.get_node(40))
-        #self.assertRaises(MissingValueError, tree2.get_node(2))
+        self.assertRaises(MissingValueError, tree1.get_node,40)
+        self.assertRaises(MissingValueError, tree2.get_node,2)
         self.assertEqual(tree3.get_node(4), tree3.root.left)
         self.assertEqual(tree4.get_node(12), tree4.root.right.right.right.right)
         self.assertEqual(tree4.get_node(1), tree4.root.left.left)
